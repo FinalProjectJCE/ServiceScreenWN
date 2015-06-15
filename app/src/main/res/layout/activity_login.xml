@@ -1,0 +1,81 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.zakencorp.zaken.servicescreen.MainActivity22Activity">
+
+    <TextView
+        android:text="@string/loginTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/loginTV"
+        android:textSize="35dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/appServiceTV"
+        android:id="@+id/textView"
+        android:layout_below="@+id/loginTV"
+        android:layout_centerHorizontal="true"
+        android:textColor="#ff2846ff"
+        android:textSize="35dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/userNameET"
+        android:hint="@string/userNameHint"
+        android:focusable="true"
+        android:textColorHighlight="#ff7eff15"
+        android:textColorHint="#ffff25e6"
+        android:layout_marginTop="46dp"
+        android:layout_below="@+id/imageView"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:gravity="right" />
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageView"
+        android:src="@drawable/abc"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:scaleType="fitXY" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/passwordET"
+        android:layout_below="@+id/userNameET"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignRight="@+id/userNameET"
+        android:layout_alignEnd="@+id/userNameET"
+        android:textColorHint="#ffff299f"
+        android:hint="@string/passwordHint"
+        android:layout_alignParentRight="false"
+        android:gravity="right" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loginButtonText"
+        android:id="@+id/loginButton"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/loginTV"
+        android:layout_alignStart="@+id/loginTV"
+        android:layout_alignRight="@+id/loginTV"
+        android:layout_alignEnd="@+id/loginTV"
+        android:onClick="loginClicked" />
+
+</RelativeLayout>

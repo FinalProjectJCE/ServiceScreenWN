@@ -1,0 +1,226 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:orientation="horizontal"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
+    android:weightSum="1"
+    android:background="#ffabd6ff">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="match_parent"
+        android:weightSum="1">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="221dp"
+            android:layout_weight="0.1"
+            android:weightSum="1">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_weight="0.33">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Large Text"
+                    android:id="@+id/businessNameTV"
+                    android:layout_gravity="center_horizontal"
+                    android:textSize="50dp" />
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="3dp"
+                    android:background="#ffff9e00"
+                    android:layout_alignTop="@+id/businessNameTV"
+                    android:id="@+id/sp1" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.33"
+                android:layout_margin="10dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+
+                    android:text="@string/currTV"
+                    android:id="@+id/currLineTV"
+                    android:layout_weight="0.1"
+                    android:gravity="left"
+                    android:textSize="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/finalCurrTV"
+                    android:id="@+id/finalCurrLineTV"
+                    android:layout_weight="0.9"
+                    android:gravity="right"
+                    android:textSize="30dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp">
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="3dp"
+                android:background="#ffff9e00"
+                android:layout_alignTop="@+id/currLineTV"
+                android:id="@+id/sp2" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.33"
+                android:layout_marginTop="5dp"
+                android:layout_margin="10dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/waitingTV"
+                    android:id="@+id/waitingTV"
+                    android:layout_weight="0.1"
+                    android:gravity="left"
+                    android:textSize="30dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="@string/finalWaitingTV"
+                    android:id="@+id/finalWaitingTV"
+                    android:layout_weight="0.9"
+                    android:gravity="right"
+                    android:textSize="30dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp">
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="3dp"
+                    android:background="#ffff9e00"
+                    android:layout_alignTop="@+id/currLineTV"
+                    android:id="@+id/sp3" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:weightSum="1"
+            android:layout_weight="0.9">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.2">
+
+                <Button
+                    android:layout_width="477dp"
+                    android:layout_height="match_parent"
+                    android:text="@string/takeLineButtonTV"
+                    android:id="@+id/loginButton"
+                    android:layout_gravity="center_horizontal"
+                    android:onClick="start"
+                    android:textStyle="bold|italic"
+                    android:textAppearance="@android:style/TextAppearance.DeviceDefault.Large"
+                    android:singleLine="false"
+                    android:textSize="40dp"
+
+                    android:background="@drawable/mybutton"
+                    android:enabled="true"
+                    android:clickable="true" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.8"
+                android:baselineAligned="false"
+                android:weightSum="1">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.31"
+                    android:weightSum="1"
+                    android:layout_marginTop="10dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/qr1TV"
+                        android:id="@+id/qr1TV"
+                        android:layout_gravity="right"
+                        android:layout_marginBottom="10dp"
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold"
+                        android:textSize="40dp" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/qr2TV"
+                        android:id="@+id/qr2TV"
+                        android:layout_gravity="right"
+                        android:textStyle="bold"
+                        android:textSize="40dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0.65">
+
+                    <ImageView
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:id="@+id/qrCodeIV"
+                        android:background="@drawable/border"
+
+                        android:layout_gravity="center_horizontal" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
