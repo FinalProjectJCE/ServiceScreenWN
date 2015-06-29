@@ -29,6 +29,10 @@ public class QueueDAL extends AsyncTask<String,Integer,Integer>
 
     }
 
+    /*
+    Getting The Current Queue And The Total Queue For Calculating The Users Queue
+    And Updating The Total Queue In The DB To Be Plus One.
+     */
     @Override
     protected Integer doInBackground(String... sqlQ) {
         int response = 0;
@@ -49,13 +53,7 @@ public class QueueDAL extends AsyncTask<String,Integer,Integer>
                 int currentQueue = rs.getInt("CurrentQueue");
                 int totalQueue= rs2.getInt("TotalQueue");
                 response = currentQueue;
-                //System.out.println("\nSQLQ{1}"+sqlQ[1]+"\n");
                 publishProgress(currentQueue,totalQueue);
-                Log.d("QueueDAL Queue Is", ""+currentQueue );
-                Log.d("QueueDAL Total Is", ""+totalQueue );
-
-
-                Log.d("### DoInBackrou Cons()", "" );
             }
 
             Log.d(result, "");
@@ -66,10 +64,8 @@ public class QueueDAL extends AsyncTask<String,Integer,Integer>
     }
 
     protected void onProgressUpdate(Integer... progress) {
-        Log.d("onProgres CurrentQueue",""+progress[0] );
-        Log.d("onProgressUpdate Total",""+progress[1] );
-
+        // Sending The Data To Be Process In The BL Class.
         qbl.setUserQueue(progress[0] + (progress[1] - progress[0]) + 1,context);
-        //currentQueueDisplay_in_queue.setText(Integer.toString(progress[0]));
+
     }
 }

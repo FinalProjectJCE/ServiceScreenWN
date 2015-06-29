@@ -14,7 +14,7 @@
     <string name="takeLineButtonTV">לחץ\n  על מנת לקבל תור ללא שימוש באפליקציה</string>
     <string name="qr2TV">סרוק את הקוד באמצעות המכשיר על מנת לקבל תור</string>
     <string name="qr1TV">קבלת תור למשתמשי האפליקציה</string>
-    <string name="finalCurrTV">כרגע בתור לקוח מספר : </string>
+    <string name="finalCurrTV">הלקוח הבא בתור, לקוח מספר : </string>
     <string name="currTV">טוען ... </string>
     <string name="waitingTV">טוען ...</string>
     <string name="finalWaitingTV">מספר הלקוחות הממתינים בתור : </string>

@@ -12,7 +12,7 @@ import com.google.zxing.BarcodeFormat;
 import com.google.zxing.WriterException;
 
 
-public class MainActivity2Activity extends ActionBarActivity {
+public class QrCodeGenerator extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,7 +20,7 @@ public class MainActivity2Activity extends ActionBarActivity {
         setContentView(R.layout.activity_main_activity2);
         ImageView imageView = (ImageView) findViewById(R.id.qrCode);
 
-        String qrData = "Data I want to encode in QR code";
+        String qrData = " ";
         int qrCodeDimention = 500;
 
         QRCodeEncoder qrCodeEncoder = new QRCodeEncoder(qrData, null,

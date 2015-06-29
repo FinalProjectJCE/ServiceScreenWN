@@ -10,7 +10,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 
-public class Login extends ActionBarActivity {
+public class Login extends ActionBarActivity { // Login Page Of The Application
     private Button loginButton;
     private EditText userNameET,passwordET;
     private UsersBL ubl;
@@ -37,7 +37,7 @@ public class Login extends ActionBarActivity {
             ubl = new UsersBL();
             ubl.getBusinessID(this,this,userPassword,userName);
         }
-        //char.IsLetterOrDigit
+
     }
 
 

@@ -8,11 +8,12 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Time;
 
 /**
  * Created by Zaken on 31/05/2015.
  */
-public class InfoDAL extends AsyncTask<String,Integer,Integer>
+public class InfoDAL extends AsyncTask<String,Object,Integer>
 {
     private String DB_URL,USER,PASS;
     private InfoBL ibl;
@@ -28,10 +29,10 @@ public class InfoDAL extends AsyncTask<String,Integer,Integer>
         DB_URL = DatabaseConstants.DB_URL;
         PASS= DatabaseConstants.PASS;
         USER=DatabaseConstants.USER;
-        query= "SELECT CurrentQueue FROM Queue WHERE BusinessId = '" + branchId + "'";
-        query2 = "SELECT TotalQueue FROM Queue WHERE BusinessId = '" + branchId + "'";
+        query= "SELECT CurrentQueue,TotalQueue,NumberOfClerks,AverageTime FROM Queue WHERE BusinessId = '" + branchId + "'";
     }
 
+    // doInBackground Starts The Connection To The DB And Sends The Data In The Process.
     @Override
     protected Integer doInBackground(String... params) {
         int response = 0;
@@ -41,14 +42,18 @@ public class InfoDAL extends AsyncTask<String,Integer,Integer>
             Connection con = DriverManager.getConnection(DB_URL, USER, PASS);
             String result = "\nDatabase connection success\n";
             Statement st = con.createStatement();
-            Statement st2 = con.createStatement();
             while(running) {
                 ResultSet rs = st.executeQuery(query);
-                ResultSet rs2 = st2.executeQuery(query2);
-                while (rs.next()&& rs2.next()) {
+                while (rs.next()) {
                     int currentQueue = rs.getInt("CurrentQueue");
-                    int totalQueue = rs2.getInt("TotalQueue");
-                    publishProgress(currentQueue,totalQueue);
+                    int totalQueue = rs.getInt("TotalQueue");
+                    int numOfClerks = rs.getInt("NumberOfClerks");
+                    Time time=rs.getTime("AverageTime");
+                    int numOfPeopleForAverage = totalQueue-currentQueue;
+                    if (numOfPeopleForAverage<1)
+                        numOfPeopleForAverage=0;
+
+                    publishProgress(currentQueue,time,numOfPeopleForAverage,numOfClerks,totalQueue);
                 }
                 if(isCancelled())
                     running=false;
@@ -58,10 +63,8 @@ public class InfoDAL extends AsyncTask<String,Integer,Integer>
         }
         return 1;
     }
-
-    protected void onProgressUpdate(Integer...progress)
+    protected void onProgressUpdate(Object...progress)
     {
-        ibl.displayData(progress[0],progress[1]);
+        ibl.displayData(progress);
     }
-
 }

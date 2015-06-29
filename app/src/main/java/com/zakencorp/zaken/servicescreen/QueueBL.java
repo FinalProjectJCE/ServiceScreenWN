@@ -33,8 +33,9 @@ public class QueueBL
         editor = sharedPrefQueue.edit();
     }
 
-    public void startAsync()
+    public void startAsync() // Starts The Async Task
     {
+        // Starts An Alert While Calculating The Queueu
         pDialog=new SweetAlertDialog(context, SweetAlertDialog.PROGRESS_TYPE);
         pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
         pDialog.setTitleText("אנא המתן לקבלת התור");
@@ -43,11 +44,9 @@ public class QueueBL
         task= new QueueDAL(this,branchId,context);
         task.execute();
         Log.d("### startAsync()", "" );
-
-
     }
 
-    public void setUserQueue(int lineNum,Context mainScreenContext)
+    public void setUserQueue(int lineNum,Context mainScreenContext) // Displaying The Queue To The User! And Setting The Message
     {
         editor.putInt("THE_LINE",lineNum).apply();
         Log.d("On BL setUserQueue", "" + lineNum);
@@ -59,7 +58,7 @@ public class QueueBL
         alertDialogBuilder
                 .setMessage("מספרך בתור הוא : " + lineNum )
                 .setCancelable(false)
-                .setPositiveButton("No",new DialogInterface.OnClickListener() {
+                .setPositiveButton("אשר",new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog,int id) {
                         // if this button is clicked, just close
                         // the dialog box and do nothing

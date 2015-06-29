@@ -1,20 +1,13 @@
 package com.zakencorp.zaken.servicescreen;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -34,6 +27,7 @@ public class MainScreen extends ActionBarActivity {
     private int userQueue;
     private TextView headerTV;
     QueueBL qbl;
+    BusinessNameBL businessNameBL;
     private SweetAlertDialog pDialog;
     private String businessName;
 
@@ -50,7 +44,8 @@ public class MainScreen extends ActionBarActivity {
         ibl.getCurrentQueueAndWaitingClients(this, this, branchId);
         setQrCode(branchId);
         qbl=new QueueBL(this,branchId);
-
+        businessNameBL=new BusinessNameBL(this,branchId);
+        businessNameBL.startAsync();
         sharedPrefQueue = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
         editor = sharedPrefQueue.edit();
     }
@@ -81,7 +76,7 @@ public class MainScreen extends ActionBarActivity {
     public void start(View view)
     {
         qbl.startAsync();
-    }
+    } // Get Queue Button Clicked, Start Calculating A Qeueu In Async
 
     @Override
     protected void onStop() {
@@ -102,7 +97,7 @@ public class MainScreen extends ActionBarActivity {
         //ibl.task.cancel(true);
     }
 
-    public void setQrCode(int branchId)
+    public void setQrCode(int branchId) // Sets The QR Code To Return The Business Id, And Displaying It On The Screen
     {
         qrCodeIV = (ImageView) findViewById(R.id.qrCodeIV);
         String qrData = ""+branchId;
