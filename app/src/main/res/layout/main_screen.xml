@@ -161,7 +161,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="@string/finalWaitingTV"
+                    android:text="@string/avergeTimeTV"
                     android:id="@+id/timeTV"
                     android:layout_weight="0.9"
                     android:gravity="right"

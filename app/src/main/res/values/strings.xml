@@ -17,5 +17,6 @@
     <string name="finalCurrTV">הלקוח הבא בתור, לקוח מספר : </string>
     <string name="currTV">טוען ... </string>
     <string name="waitingTV">טוען ...</string>
-    <string name="finalWaitingTV">מספר הלקוחות הממתינים בתור : </string>
+    <string name="avergeTimeTV">"זמן ממוצע עד לקבלת התור : "</string>
+    <string name="finalWaitingTV">מספר הלקוחות הממתינים : </string>
 </resources>
